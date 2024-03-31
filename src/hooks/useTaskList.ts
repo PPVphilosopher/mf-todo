@@ -29,8 +29,13 @@ export const useTaskList = () => {
     ])
   }
 
+  const deleteTask = (id: string) => {
+    updateList(list.filter((task) => task.id !== id))
+  }
+
   return {
     list,
     addTask,
+    deleteTask,
   }
 }
