@@ -28,7 +28,11 @@ export const TaskForm = ({ addTask }: Props) => {
         <label>
           Task title
           <input
-            {...register('title', { required: true, pattern: /[^\s]+/ })}
+            {...register('title', {
+              required: true,
+              pattern: /[^\s]+/,
+              maxLength: 128,
+            })}
           />
           {errors.title && <span>invalid title</span>}
         </label>
@@ -37,7 +41,7 @@ export const TaskForm = ({ addTask }: Props) => {
           Time Required(in Hrs)
           <input
             type='number'
-            {...register('time', { required: true, min: 1 })}
+            {...register('time', { required: true, min: 0, max: 24 })}
           />
           {errors.time && <span>invalid time</span>}
         </label>
