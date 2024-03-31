@@ -7,11 +7,17 @@ export const App = () => {
 
   return (
     <div className='App'>
-      Task Management App
-      <TaskStat list={list} />
+      <div>
+        <h1>Task Management App</h1>
+        <TaskStat list={list} />
+      </div>
+
       <TaskForm addTask={addTask} />
-      Todo list
-      <TaskList list={list} deleteTask={deleteTask} />
+
+      <div>
+        <h2>Todo list</h2>
+        <TaskList list={list} deleteTask={deleteTask} />
+      </div>
     </div>
   )
 }

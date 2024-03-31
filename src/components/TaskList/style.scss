@@ -1,2 +1,33 @@
 .TaskList {
+  border: 1px solid lightgray;
+  border-spacing: 0;
+  max-width: 100%;
+  font-size: 14px;
+  text-align: left;
+
+  th,
+  td {
+    border: 1px solid lightgray;
+    padding: 6px 10px;
+    word-break: break-all;
+  }
+
+  th {
+    &:nth-child(2) {
+      width: 200px;
+    }
+
+    &:nth-child(3) {
+      width: 60px;
+    }
+  }
+
+  &__action {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

@@ -1,2 +1,36 @@
 .TaskForm {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  &__label {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+  }
+
+  &__input {
+    padding: 5px 10px;
+    width: 200px;
+    border: 2px solid lightgray;
+    font-size: 16px;
+    outline: none;
+    border-radius: 4px;
+
+    &:focus {
+      border-color: dodgerblue;
+    }
+  }
+
+  &__submit {
+    height: 32px;
+    color: white;
+    background-color: dodgerblue;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+  }
 }

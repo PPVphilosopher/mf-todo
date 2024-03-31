@@ -24,19 +24,19 @@ export const TaskStat = ({ list }: Props) => {
 
   return (
     <div className='TaskStat'>
-      <div>
+      <div className='TaskStat__box'>
         <span>Total Tasks</span>
-        <span>{data.count}</span>
+        <div className='TaskStat__box__value'>{data.count}</div>
       </div>
 
-      <div>
+      <div className='TaskStat__box'>
         <span>Total Days</span>
-        <span>{data.days}</span>
+        <div className='TaskStat__box__value'>{data.days}</div>
       </div>
 
-      <div>
+      <div className='TaskStat__box'>
         <span>Total Hours</span>
-        <span>{data.hours}</span>
+        <div className='TaskStat__box__value'>{data.hours}</div>
       </div>
     </div>
   )

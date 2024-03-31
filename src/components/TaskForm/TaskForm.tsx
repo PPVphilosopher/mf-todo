@@ -9,12 +9,7 @@ type Props = {
 }
 
 export const TaskForm = ({ addTask }: Props) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<Inputs>()
+  const { register, handleSubmit, reset } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const { title, time } = data
@@ -23,28 +18,30 @@ export const TaskForm = ({ addTask }: Props) => {
   }
 
   return (
-    <div className='TaskForm'>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Task title
-          <input maxLength={128} required {...register('title')} />
-          {errors.title && <span>title is required</span>}
-        </label>
+    <form className='TaskForm' onSubmit={handleSubmit(onSubmit)}>
+      <label>
+        <div className='TaskForm__label'>Task title</div>
+        <input
+          className='TaskForm__input'
+          maxLength={128}
+          required
+          {...register('title')}
+        />
+      </label>
 
-        <label>
-          Time Required(in Hrs)
-          <input
-            type='number'
-            min={0}
-            max={24}
-            required
-            {...register('time')}
-          />
-          {errors.time && <span>invalid time</span>}
-        </label>
+      <label>
+        <div className='TaskForm__label'>Time Required(in Hrs)</div>
+        <input
+          className='TaskForm__input'
+          type='number'
+          min={0}
+          max={24}
+          required
+          {...register('time')}
+        />
+      </label>
 
-        <input type='submit' value='Add' />
-      </form>
-    </div>
+      <input className='TaskForm__submit' type='submit' value='Add' />
+    </form>
   )
 }

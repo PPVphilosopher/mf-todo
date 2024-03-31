@@ -13,27 +13,30 @@ export const TaskList = ({ list, deleteTask }: Props) => {
   }
 
   return (
-    <div className='TaskList'>
-      <table>
-        <thead>
-          <tr>
-            <th>Task Title</th>
-            <th>Time Required(in Hrs)</th>
-            <th>Action</th>
+    <table className='TaskList'>
+      <thead>
+        <tr>
+          <th>Task Title</th>
+          <th>Time Required(in Hrs)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {list.map((task) => (
+          <tr key={task.id}>
+            <td>{task.title}</td>
+            <td>{task.time}</td>
+            <td>
+              <button
+                className='TaskList__action'
+                onClick={() => onDelete(task)}
+              >
+                Delete
+              </button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {list.map((task) => (
-            <tr key={task.id}>
-              <td>{task.title}</td>
-              <td>{task.time}</td>
-              <td>
-                <button onClick={() => onDelete(task)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   )
 }
