@@ -27,21 +27,18 @@ export const TaskForm = ({ addTask }: Props) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Task title
-          <input
-            {...register('title', {
-              required: true,
-              pattern: /[^\s]+/,
-              maxLength: 128,
-            })}
-          />
-          {errors.title && <span>invalid title</span>}
+          <input maxLength={128} required {...register('title')} />
+          {errors.title && <span>title is required</span>}
         </label>
 
         <label>
           Time Required(in Hrs)
           <input
             type='number'
-            {...register('time', { required: true, min: 0, max: 24 })}
+            min={0}
+            max={24}
+            required
+            {...register('time')}
           />
           {errors.time && <span>invalid time</span>}
         </label>
