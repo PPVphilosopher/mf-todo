@@ -13,7 +13,24 @@ export const useTaskList = () => {
     } catch (_) {}
   }, [])
 
+  const updateList = (newList: Task[]) => {
+    setList(newList)
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newList))
+  }
+
+  const addTask = (title: string, time: number) => {
+    updateList([
+      ...list,
+      {
+        id: crypto.randomUUID(),
+        title,
+        time,
+      },
+    ])
+  }
+
   return {
     list,
+    addTask,
   }
 }
